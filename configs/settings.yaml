@@ -1,0 +1,39 @@
+amadeus:
+  base_url: https://test.api.amadeus.com
+  city_code: NCE
+  adults: 1
+  rooms: 1
+  search_days: 14
+  night_options: [1, 2]
+
+database:
+  uri: ""   # leave empty for now, to be filled once DB creds are ready
+
+features:
+  use_historical_data: true
+  kaggle_dataset_path: "data/raw/hotel_bookings.csv"
+  engineered_features: 
+    - lead_time
+    - stay_length
+    - avg_price_vs_city
+    - refundable_flag
+    - penalty_window
+
+model:
+  baseline: "rule_based"
+  improved: "log_reg"   # or "xgboost"
+  tracking: "mlflow"
+
+orchestration:
+  airflow_schedule: "@hourly"
+
+monitoring:
+  drift_threshold: 0.1
+  min_accuracy: 0.75
+  alert_channel: "slack"   # placeholder, could be email/slack/logging
+
+app:
+  risk_colors:
+    low: green
+    medium: yellow
+    high: red
