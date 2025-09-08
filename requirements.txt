@@ -1,7 +1,7 @@
-requests
-python-dotenv
-pandas
-pyyaml
-sqlalchemy
-psycopg2-binary
-pytest
+requests~=2.32
+python-dotenv~=1.0
+pandas~=2.3
+PyYAML~=6.0
+SQLAlchemy~=2.0
+psycopg2-binary~=2.9
+pytest~=8.0
