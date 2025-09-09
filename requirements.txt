@@ -5,3 +5,12 @@ PyYAML~=6.0
 SQLAlchemy~=2.0
 psycopg2-binary~=2.9
 pytest~=8.0
+
+# ML / Data Science
+numpy~=1.26
+scikit-learn~=1.5
+
+# Optional (plots, experiment tracking)
+matplotlib~=3.9
+seaborn~=0.13
+mlflow~=2.16
