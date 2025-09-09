@@ -6,16 +6,37 @@ It implements an **MLOps pipeline** with CI/CD, monitoring, and a Streamlit app 
 ---
 
 ## Project Structure
-hotels/
-├── configs/        # YAML settings and config files
-├── data/           # Raw and processed datasets (ignored in Git)
-├── scripts/        # Helper scripts (fetch, feature engineering, quick runs)
-├── src/hotels/     # Core Python package
-├── .env            # Local secrets (not in Git)
-├── .env.example    # Example environment variables
-├── .gitignore
-├── requirements.txt
-└── README.md
+hotels
+├── .env                # Local secrets (ignored in Git)
+├── .env.example        # Example environment variables (safe to share)
+├── .gitignore          # Ignore rules for Git
+├── README.md           # Project documentation
+├── app/                # Streamlit application
+│ └── app.py            # Entry point for the dashboard
+├── configs/            # YAML settings and configs
+│ └── settings.yaml     # Pipeline configuration
+├── data/               # Raw and processed datasets
+│ ├── processed/
+│ │ └── .gitkeep        # Keeps folder in Git (data ignored)
+│ └── raw/
+│ └── .gitkeep          # Keeps folder in Git (data ignored)
+├── logs/               # Logs output
+│ └── .gitkeep          # Keeps folder in Git (logs ignored)
+├── requirements.txt    # Python dependencies
+├── scripts/            # Helper scripts
+│ ├── fetch_offers.py   # Pull hotel offers from Amadeus
+│ ├── make_features.py  # Feature engineering
+│ └── quick_run.py      # Quick local run
+├── src/                # Source code
+│ └── hotels/           # Core Python package
+│ ├── init.py
+│ ├── amadeus_client.py # API client logic
+│ ├── config.py         # Load env + YAML settings
+│ ├── db.py             # Database connection helpers
+│ ├── flatten.py        # Normalize nested API JSON
+│ └── storage.py        # Save/load raw and processed data
+└── tests/              # Unit and integration tests
+└── test_smoke.py       # Basic PyTest check
 
 
 ---
